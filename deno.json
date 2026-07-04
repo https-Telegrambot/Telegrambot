@@ -1,0 +1,26 @@
+{
+  "name": "telegrambot",
+  "version": "2.3.2",
+  "description": "Telegram Community & Operations Platform - STOS V2.3.2",
+  "tasks": {
+    "dev": "deno run --allow-all --allow-env --allow-net --allow-read --allow-write src/main.ts",
+    "start": "deno run --allow-env=TELEGRAM_BOT_TOKEN,OWNER_ID,WEBHOOK_URL,WEBHOOK_HOST,WEBHOOK_PORT,KV_PATH,REQUEST_TIMEOUT --allow-net=api.telegram.org --allow-read=database --allow-write=database src/main.ts",
+    "test": "deno test --allow-all",
+    "test:unit": "deno test --allow-all tests/unit/",
+    "test:integration": "deno test --allow-all tests/integration/",
+    "test:security": "deno test --allow-all tests/security/",
+    "fmt": "deno fmt",
+    "fmt:check": "deno fmt --check",
+    "lint": "deno lint",
+    "cache": "deno cache src/main.ts"
+  },
+  "imports": {
+    "std/": "https://deno.land/std@0.208.0/",
+    "events": "https://deno.land/std@0.208.0/node/events.ts"
+  },
+  "exports": {
+    "./connector": "./src/connectors/deno-connector.ts",
+    "./models": "./src/models/mod.ts",
+    "./schemas": "./src/storage/kv-schemas.ts"
+  }
+}
